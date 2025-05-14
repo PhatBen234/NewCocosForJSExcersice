@@ -1,3 +1,5 @@
+//ma oi bai nay khong hieu gi het
+
 cc.Class({
   extends: cc.Component,
 
