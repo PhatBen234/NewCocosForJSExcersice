@@ -17,13 +17,13 @@ cc.Class({
   },
 
   async downloadImagesSequentially(urls) {
-    for (let i = 0; i < urls.length; i++) {
+    for (let i = 0; i < urls.length; i++) { // vong lap chay qua tung URL trong mang
       try {
-        cc.log(`Đang tải ảnh ${i + 1}/${urls.length}`);
-        const texture = await this.downloadImage(urls[i]);
-        this.displaySprite.spriteFrame = new cc.SpriteFrame(texture);
+        cc.log(`Đang tải ảnh ${i + 1}/${urls.length}`); //ghi log anh thu may/ tong? dc tai?
+        const texture = await this.downloadImage(urls[i]); // goi ham dowloadImage o duoi de tai anh
+        this.displaySprite.spriteFrame = new cc.SpriteFrame(texture); // gan vo spriteframe de tai hinh
         cc.log(`Đã hiển thị ảnh ${i + 1}`);
-        await this.delay(2000); // Delay 2 giây
+        await this.delay(2000); // Delay 2 giây moi tai anh tiep theo
       } catch (error) {
         cc.error(`Lỗi khi tải ảnh ${i + 1}:`, error);
       }
@@ -34,15 +34,15 @@ cc.Class({
     return new Promise((resolve, reject) => {
       cc.loader.load({ url: url, type: 'jpg' }, (err, texture) => {
         if (err) {
-          reject(err);
+          reject(err); // that bai
         } else {
-          resolve(texture);
+          resolve(texture); // tra ve textture neu thanh cong
         }
       });
     });
   },
 
-  delay(ms) {
+  delay(ms) {// delay bang promise
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 });

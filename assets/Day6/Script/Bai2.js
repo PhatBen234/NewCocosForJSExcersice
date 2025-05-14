@@ -2,7 +2,7 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
-    timeLabel: cc.Label,  // Hiển thị kết quả trên label
+    timeLabel: cc.Label,  
   },
 
   start() {
@@ -22,7 +22,7 @@ cc.Class({
   },
 
   // Hàm retry request
-  async fetchWithAutoRetry(fetcher, maximumRetryCount = 5) {
+  async fetchWithAutoRetry(fetcher, maximumRetryCount = 5) { // truyen so lan retry mac dinh la 5, no se chay 5 neu o tren ngta quen truyen vao
     let attempt = 0;
     while (attempt < maximumRetryCount) {
       try {
